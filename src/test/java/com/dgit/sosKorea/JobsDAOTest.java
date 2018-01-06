@@ -10,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.dgit.domain.Criteria;
 import com.dgit.domain.JobsVO;
+import com.dgit.domain.SearchCriteria;
 import com.dgit.persistence.JobsDAO;
 
 
@@ -51,19 +53,52 @@ public class JobsDAOTest {
 		dao.update(vo);
 	}*/
 	
-	@Test
+	/*@Test
 	public void testDelete()  throws Exception{
 		dao.delete(2);
-	}
+	}*/
 	
 	/*@Test
 	public void testListPage() throws Exception{
 		int page=3;
-		List<BoardVO> list = dao.listPage(page);
-		for(BoardVO vo : list){
+		List<JobsVO> list = dao.listPage(page);
+		for(JobsVO vo : list){
 			logger.info(vo.getBno()+ " : " + vo.getTitle());
 		}
 	}*/
+	
+	/*@Test
+	public void testListCriteria() throws Exception{
+		Criteria cri = new Criteria();
+		cri.setPage(2);
+		cri.setPerPageNum(20);
+		
+		List<JobsVO> list = dao.listCriteria(cri);
+		
+		for(JobsVO jobsVO : list){
+			logger.info(jobsVO.getBno() + ":" + jobsVO.getTitle());
+		}
+	}*/
+	
+	@Test
+	public void testDynamic1() throws Exception{
+		SearchCriteria cri = new SearchCriteria();
+		cri.setPage(1);
+		cri.setKeyword("새로운");
+		cri.setSearchType("c");
+		
+		logger.info("=======================================");
+		
+		List<JobsVO> list = dao.listSearch(cri);
+		
+		for(JobsVO vo : list){
+			logger.info(vo.getBno() + ": " + vo.getTitle());
+		}
+		
+		logger.info("========================================");
+		
+		logger.info("COUNT: " + dao.listSearchCount(cri));
+	}
 	
 	
 }

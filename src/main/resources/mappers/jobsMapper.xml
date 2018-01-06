@@ -26,6 +26,86 @@
 	  	select * from jobs where bno > 0 order by bno desc, regdate desc  
 	</select>
 	
+	<select id="listPage" resultType="JobsVO">
+		select 
+		bno, title, content, userid, regdate, viewcnt, replycnt
+		from
+		jobs
+		where bno>0
+		order by bno desc, regdate desc
+		limit #{page}, 10
+	</select>
+	
+	<select id="listCriteria" resultType="JobsVO">
+		select 
+		bno, title, content, userid, regdate, viewcnt, replycnt
+		from
+		jobs
+		where bno>0
+		order by bno desc, regdate desc
+		limit #{pageStart}, #{perPageNum}
+	</select> 	
+	
+	<select id="countPaging" resultType="int">
+		select 
+		 count(bno)
+		from
+		 jobs
+		where bno>0		
+	</select> 
+	
+	<sql id="search">
+		<if test="searchType !=null">
+			<if test="searchType == 't'.toString()">
+				and title like CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="searchType == 'c'.toString()">
+				and content like CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="searchType == 'w'.toString()">
+				and userid like CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="searchType == 'tc'.toString()">
+				and ( title like CONCAT('%', #{keyword}, '%') OR content like CONCAT('%', #{keyword}, '%'))
+			</if>
+			<if test="searchType == 'cw'.toString()">
+				and ( content like CONCAT('%', #{keyword}, '%') OR userid like CONCAT('%', #{keyword}, '%'))
+			</if>
+			<if test="searchType == 'tcw'.toString()">
+				and ( title like CONCAT('%', #{keyword}, '%')
+				 OR content like CONCAT('%', #{keyword}, '%')
+				 OR userid like CONCAT('%', #{keyword}, '%'))
+			</if>
+		</if>
+	</sql>
+	
+	<select id="listSearch" resultType="JobsVO">
+		select *
+		from jobs
+		where bno > 0
+		<include refid="search"></include>
+		order by bno desc
+		limit #{pageStart}, #{perPageNum}
+	</select>
+	
+	<select id="listSearchCount" resultType="int">
+		select count(bno)
+		from jobs
+		where bno>0
+		<include refid="search"></include>
+	</select>
+	
+	<update id="updateReplyCnt">
+		update jobs set replycnt = replycnt + #{amount} where bno = #{bno}
+	</update>
+	
+	<update id="updateViewCnt">
+		update jobs 
+		set viewcnt=viewcnt+1  where bno=#{bno};
+	</update>
+	
+	
+	
 </mapper>
 
 
