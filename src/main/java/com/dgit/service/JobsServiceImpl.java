@@ -18,18 +18,26 @@ public class JobsServiceImpl implements JobsService {
 	@Autowired
 	private JobsDAO dao;		
 	
+	@Transactional
 	@Override
 	public void regist(JobsVO jobs) throws Exception {
 		// TODO Auto-generated method stub
+		
 		dao.create(jobs);
+		System.out.println("1111111111111111111111111111111111111111");
+		String[] files = jobs.getFiles();
 		
-		/*if(board.getFiles()==null) //보호처리
+		if(files==null){ //보호처리			
 			return;
+		}
+		System.out.println("======="+jobs.getFiles().toString()+"==========");
 		
-		for(String fullname : board.getFiles()){
-			dao.addAttach(fullname);
-		}*/
-		
+		for(String fileName : files){
+			
+			dao.addAttach(fileName);
+			System.out.println("mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
+		}
+		System.out.println("22222222222222222222222222222222222222");
 	}
 	
 	@Transactional(isolation=Isolation.READ_COMMITTED)
@@ -40,13 +48,13 @@ public class JobsServiceImpl implements JobsService {
 		return dao.read(bno);
 	}
 
-	
+	@Transactional
 	@Override
 	public void modify(JobsVO jobs) throws Exception {
 		// TODO Auto-generated method stub
 		dao.update(jobs);
 		
-		/*Integer bno = jobs.getBno();
+		Integer bno = jobs.getBno();
 		
 		dao.deleteAttach(bno);
 		
@@ -58,14 +66,15 @@ public class JobsServiceImpl implements JobsService {
 		
 		for(String fileName : files){
 			dao.replaceAttach(fileName, bno);
-		}*/
+		}
 	}
-
+	
+	@Transactional
 	@Override
 	public void remove(Integer bno) throws Exception {
 		// TODO Auto-generated method stub
 		
-		//dao.deleteAttach(bno);
+		dao.deleteAttach(bno);
 		dao.delete(bno);
 	}
 
@@ -99,6 +108,12 @@ public class JobsServiceImpl implements JobsService {
 		// TODO Auto-generated method stub
 		return dao.listSearchCount(cri);
 	}
+
+	@Override
+	public List<String> getAttach(Integer bno) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.getAttach(bno);
+	}
 	
 	/*
 	@Override
@@ -106,18 +121,8 @@ public class JobsServiceImpl implements JobsService {
 		// TODO Auto-generated method stub
 		return dao.totalCount();
 	}	
-	
-	@Override
-	public int updateViewCnt(int bno) throws Exception {
-		// TODO Auto-generated method stub
-		return dao.updateViewCnt(bno);
-	}
 
-	@Override
-	public List<String> getAttach(Integer bno) throws Exception {
-		// TODO Auto-generated method stub
-		return dao.getAttach(bno);
-	}
+	
 */
 
 	

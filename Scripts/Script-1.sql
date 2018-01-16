@@ -59,3 +59,15 @@ insert into jobs_reply(bno, replytext, userid) (select bno, replytext, userid fr
 update jobs set replycnt =
 (select count(rno) from jobs_reply
 where bno = jobs.bno) where bno>0;
+
+create table jobs_attach(
+	fullName varchar(150) not null,
+	bno int not null,
+	regdate timestamp default now(),
+	primary key(fullName)
+);
+
+alter table jobs_attach add constraint fk_jobs_attach
+foreign key (bno) references jobs(bno);
+
+select * from jobs_attach;

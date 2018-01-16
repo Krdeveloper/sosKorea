@@ -3,9 +3,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../include/nav.jsp" %> 
+
+	<%-- <link href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />  --%> 
+    <!-- Font Awesome Icons -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" /> 
+    <!-- Ionicons -->
+    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />  
+    <!-- Theme style -->
+    <link href="${pageContext.request.contextPath}/resources/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />  
+    <!-- AdminLTE Skins. Choose a skin from the css/skins 
+         folder instead of downloading all of them to reduce the load. -->
+    <link href="${pageContext.request.contextPath}/resources/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" /> 
+    
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 
+ 	<div class='popup back' style="display:none;"></div>
+    <div id="popup_front" class='popup front' style="display:none;">
+      	<img id="popup_img">
+    </div>
+      
    <!-- Page Content -->
     <div class="container">
 
@@ -57,6 +74,10 @@
                 value="${jobsVO.userid }" required data-validation-required-message="Please enter your email address.">
               </div>
             </div>
+            
+            <ul class="mailbox-attachments clearfix uploadedList">                	 
+            	</ul>
+            	
             <!-- <div class="control-group form-group">
               <div class="controls">
                 <label>Message:</label>
@@ -73,9 +94,52 @@
           
         </div>
         
+       
 
       </div>
       <!-- /.row -->
+      
+      
+      
+      <style type="text/css">
+      	.popup {position:absolute;}
+      	.back {background-color:gray; opacity:0.5; width:100%; height:300%;
+      			overflow:hidden; z-index:1101;}
+      	.front{
+      		z-index:1110; opacity:1; border:1px; margin:auto;
+      	} 
+      	.show2{
+      		position:relative; 
+      		max-width:1200px;
+      		max-height:800px;
+      		overflow:auto;       		 		
+      	}  	
+      	 	   
+      </style> 
+      
+      <script type="text/javascript">
+      	 $(".uploadedList").on("click", ".mailbox-attachment-info a", function(event){
+      		
+      		var fileLink = $(this).attr("href");
+      		
+      		if(checkImageType(fileLink)){
+      			
+      			event.preventDefault();
+      			
+      			var imgTag = $("#popup_img");
+      			imgTag.attr("src",fileLink);
+      			
+      			console.log(imgTag.attr("src"));
+      			
+      			$(".popup").show('slow');
+      			imgTag.addClass("show2");
+      		}      		
+      	}); 
+      	
+      	$("#popup_img").on("click", function(){
+      		$(".popup").hide('slow');
+      	});
+      </script>
       
       <script type="text/javascript"> 
 		$(document).ready(function(){
@@ -88,6 +152,25 @@
 				formObj.submit();
 			});			
 			$(".removeBtn").on("click", function(){
+				
+				var replyCnt = $("#replycntSmall").html().replace(/[^0-9]/g,"");
+				
+				if(replyCnt > 0){
+					alert("Sorry. Can not delete if there is reply");
+					return;
+				} 
+				
+				var arr=[];
+				$(".uploadedList li").each(function(index){
+					arr.push($(this).attr("data-src"));
+				});
+				
+				if(arr.length>0){
+					$.post("/deleteAllFiles", {files:arr}, function(){
+						
+					});
+				}			
+				
 				formObj.attr("action", "/jobs/remove");				
 				formObj.submit();
 			});
@@ -171,6 +254,16 @@
 		 </div>
 		</li>
 		{{/each}}
+	</script>
+	
+	<script id="templateAttach" type="text/x-handlebars-template">
+		<li data-src='{{fullName}}'>
+			<span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}"
+			alt="Attachment"></span>
+		<div class="mailbox-attachment-info">
+		<a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
+		</div>
+		</li>
 	</script>
 	
 	<script>
@@ -318,7 +411,47 @@
 					getPage("/replies/"+bno+"/"+replyPage);
 				}								
 			}});
-		});
+		});	
+	
+	function checkImageType(fileName){
+		var pattern = /jpg|gif|png|jpeg/i;
+		return fileName.match(pattern);
+	}
+	
+	function getFileInfo(fullName){
+		var fileName, imgsrc, getLink;
+		
+		var fileLink;
+		
+		if(checkImageType(fullName)){
+			imgsrc = "/jobs/displayFile?fileName="+fullName;
+			fileLink = fullName.substr(14);
+			
+			var front = fullName.substr(0,12);  // /2017/00/00/
+			var end = fullName.substr(14);
+			
+			getLink = "/jobs/displayFile?fileName="+front+end;
+		}else{
+			imgsrc="${pageContext.request.contextPath}/resources/img/files.png";
+			fileLink=fullName.substr(12);
+			getLink = "/jobs/displayFile?fileName="+fullName;
+		}
+		fileName = fileLink.substr(fileLink.indexOf("_")+1);
+		
+		return {fileName:fileName, imgsrc:imgsrc, getLink:getLink, fullName:fullName};
+	}
+	
+	var template2 = Handlebars.compile($("#templateAttach").html());	
+	
+	$.getJSON("/jobs/getAttach/" + bno, function(list){
+		$(list).each(function(){
+			var fileInfo = getFileInfo(this);
+			
+			var html = template2(fileInfo);
+			
+			$(".uploadedList").append(html);
+		})
+	})
 	</script>
     
     
@@ -339,7 +472,18 @@
     <!-- Do not edit these files! In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
     <script src="${pageContext.request.contextPath}/resources/js/jqBootstrapValidation.js"></script>
     <%-- <script src="${pageContext.request.contextPath}/resources/js/contact_me.js"></script> --%>
-
+	
+	
+	<!-- Bootstrap 3.3.2 JS -->
+    <%-- <script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js" type="text/javascript"></script> --%> 
+    <!-- FastClick -->
+    <script src='${pageContext.request.contextPath}/resources/plugins/fastclick/fastclick.min.js'></script> 
+    <!-- AdminLTE App -->
+    <script src="${pageContext.request.contextPath}/resources/dist/js/app.min.js" type="text/javascript"></script> 
+    <!-- AdminLTE for demo purposes -->
+    <script src="${pageContext.request.contextPath}/resources/dist/js/demo.js" type="text/javascript"></script>  
+    
+    
   </body>
-
+  
 </html>

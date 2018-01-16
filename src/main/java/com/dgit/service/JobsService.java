@@ -27,10 +27,12 @@ public interface JobsService {
 	
 	public int listSearchCount(SearchCriteria cri) throws Exception;
 	
+	public List<String> getAttach(Integer bno) throws Exception;
+	
 	/*public int totalCount() throws Exception;
 	
 	
 	public int updateViewCnt(int bno) throws Exception;
 	
-	public List<String> getAttach(Integer bno) throws Exception;*/
+	*/
 }

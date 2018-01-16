@@ -3,6 +3,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="include/nav.jsp" %> 
+<style>
+      	.youtubeWrap {
+  			position: relative;
+ 			width: 100%;
+  			padding-bottom: 56.25%;
+		}
+		.youtubeWrap iframe {
+ 		 	position: absolute;
+ 		 	width: 100%;
+  			height: 100%;
+		} 
+      </style>
 <header>
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -30,10 +42,10 @@
       <div class="row">
         <div class="col-lg-4 col-sm-6 portfolio-item">
           <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+            <a href="https://www.gov.uk/world/organisations/british-embassy-seoul"><img class="card-img-top" src='${pageContext.request.contextPath}/resources/img/uk_flag.jpg' alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="#">Project One</a>
+                <a href="https://www.gov.uk/world/organisations/british-embassy-seoul">UK</a>
               </h4>
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!</p>
             </div>
@@ -41,10 +53,10 @@
         </div>
         <div class="col-lg-4 col-sm-6 portfolio-item">
           <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+            <a href="https://kr.usembassy.gov/embassy-consulate/seoul/"><img class="card-img-top" src='${pageContext.request.contextPath}/resources/img/usa_flag.jpg' alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="#">Project Two</a>
+                <a href="https://kr.usembassy.gov/embassy-consulate/seoul/">USA</a>
               </h4>
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
             </div>
@@ -52,10 +64,10 @@
         </div>
         <div class="col-lg-4 col-sm-6 portfolio-item">
           <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+            <a href="http://www.canadainternational.gc.ca/korea-coree/index.aspx?lang=eng"><img class="card-img-top" src='${pageContext.request.contextPath}/resources/img/canada_flag.jpg' alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="#">Project Three</a>
+                <a href="http://www.canadainternational.gc.ca/korea-coree/index.aspx?lang=eng">CANADA</a>
               </h4>
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quisquam, error quod sed cumque, odio distinctio velit nostrum temporibus necessitatibus et facere atque iure perspiciatis mollitia recusandae vero vel quam!</p>
             </div>
@@ -63,10 +75,10 @@
         </div>
         <div class="col-lg-4 col-sm-6 portfolio-item">
           <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+            <a href="http://southkorea.embassy.gov.au/"><img class="card-img-top" src='${pageContext.request.contextPath}/resources/img/australia_flag.jpg' alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="#">Project Four</a>
+                <a href="http://southkorea.embassy.gov.au/">AUSTRALIA</a>
               </h4>
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
             </div>
@@ -74,10 +86,10 @@
         </div>
         <div class="col-lg-4 col-sm-6 portfolio-item">
           <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+            <a href="https://www.mfat.govt.nz/ko/countries-and-regions/north-asia/republic-of-korea-south/new-zealand-embassy/"><img class="card-img-top" src='${pageContext.request.contextPath}/resources/img/newzealand_flag.jpg' alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="#">Project Five</a>
+                <a href="https://www.mfat.govt.nz/ko/countries-and-regions/north-asia/republic-of-korea-south/new-zealand-embassy/">NEW-ZEALAND</a>
               </h4>
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
             </div>
@@ -85,10 +97,10 @@
         </div>
         <div class="col-lg-4 col-sm-6 portfolio-item">
           <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+            <a href="http://www.southafrica-embassy.or.kr/"><img class="card-img-top" src='${pageContext.request.contextPath}/resources/img/southafrica_flag.jpg' alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="#">Project Six</a>
+                <a href="http://www.southafrica-embassy.or.kr/">SOUTH-AFRICA</a>
               </h4>
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque earum nostrum suscipit ducimus nihil provident, perferendis rem illo, voluptate atque, sit eius in voluptates, nemo repellat fugiat excepturi! Nemo, esse.</p>
             </div>
@@ -159,10 +171,15 @@
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
         </div>
         <div class="col-lg-6">
-          <img class="img-fluid rounded" src="http://placehold.it/700x450" alt="">
+          <!-- <img class="img-fluid rounded" src="http://placehold.it/700x450" alt=""> -->
+          <div class="youtubeWrap">
+          	<iframe width="560" height="315" src="https://www.youtube.com/embed/vXZsnlRtjQk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
         </div>
       </div>
       <!-- /.row -->
+      
+      
 
       <hr>
 

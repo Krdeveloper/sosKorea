@@ -104,8 +104,22 @@
 		set viewcnt=viewcnt+1  where bno=#{bno};
 	</update>
 	
+	<!-- LAST_INSERT_ID() : connection기반으로 가장 최근에 사용된 auto_increment 값을 리턴한다. -->
+	<insert id="addAttach">
+		insert into jobs_attach(fullName, bno) values (#{fullName}, LAST_INSERT_ID())
+	</insert>
 	
+	<select id="getAttach" resultType="string">
+		select fullName from jobs_attach where bno = #{bno} order by regdate;
+	</select>
 	
+	<delete id="deleteAttach">
+		delete from jobs_attach where bno=#{bno}
+	</delete>
+	
+	<insert id="replaceAttach">
+		insert into jobs_attach(fullName, bno) values (#{fullName}, #{bno})
+	</insert>
 </mapper>
 
 

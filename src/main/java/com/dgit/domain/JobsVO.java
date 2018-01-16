@@ -1,5 +1,6 @@
 package com.dgit.domain;
 
+import java.util.Arrays;
 import java.util.Date;
 
 public class JobsVO {
@@ -11,6 +12,16 @@ public class JobsVO {
 	private int viewcnt;
 	private int replycnt;
 	
+	private String[] files;
+	
+	
+	
+	public String[] getFiles() {
+		return files;
+	}
+	public void setFiles(String[] files) {
+		this.files = files;
+	}
 	public Integer getBno() {
 		return bno;
 	}
@@ -56,8 +67,11 @@ public class JobsVO {
 	@Override
 	public String toString() {
 		return "JobsVO [bno=" + bno + ", title=" + title + ", content=" + content + ", userid=" + userid + ", regdate="
-				+ regdate + ", viewcnt=" + viewcnt + ", replycnt=" + replycnt + "]";
+				+ regdate + ", viewcnt=" + viewcnt + ", replycnt=" + replycnt + ", files=" + Arrays.toString(files)
+				+ "]";
 	}
+	
+	
 	
 	
 	
