@@ -80,7 +80,7 @@ public class JobsDAOTest {
 		}
 	}*/
 	
-	@Test
+	/*@Test
 	public void testDynamic1() throws Exception{
 		SearchCriteria cri = new SearchCriteria();
 		cri.setPage(1);
@@ -98,6 +98,11 @@ public class JobsDAOTest {
 		logger.info("========================================");
 		
 		logger.info("COUNT: " + dao.listSearchCount(cri));
+	}*/
+	
+	@Test
+	public void tesetListTopThree() throws Exception{
+		System.out.println(dao.listTopThree());
 	}
 	
 	

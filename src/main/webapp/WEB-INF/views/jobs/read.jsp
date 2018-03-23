@@ -27,9 +27,9 @@
     <div class="container">
 
       <!-- Page Heading/Breadcrumbs -->
-      <h1 class="mt-4 mb-3">Contact
+      <!-- <h1 class="mt-4 mb-3">Contact
         <small>Subheading</small>
-      </h1>
+      </h1> -->
 
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
@@ -87,8 +87,10 @@
             <div id="success"></div>
             
             <div class="box-footer">
+            <c:if test="${login.userid == jobsVO.userid }">
         	<button type="submit" class="btn btn-warning modifyBtn" id="sendMessageButton">Modify</button>
         	<button type="submit" class="btn btn-danger removeBtn" id="sendMessageButton">Remove</button>
+        	</c:if>
         	<button type="submit" class="btn btn-primary goListBtn" id="sendMessageButton">Go List</button>
        	    </div>
           
@@ -189,10 +191,12 @@
       			<div class="box-header">
       				<h3 class="box-title">ADD NEW REPLY</h3>
       			</div>
+      			<c:if test="${not empty login }">
       			<div class="box-body">
       				<label for="newReplyWriter">Writer</label>
       				<input class="form-control" type="text" placeholder="USER ID"
-      				id="newReplyWriter"> <label for="newReplyText">ReplyText</label>
+      				id="newReplyWriter" value="${login.userid}" readonly="readonly"> 
+      				<label for="newReplyText">ReplyText</label>
       				<input class="form-control" type="text" placeholder="REPLY TEXT"
       				id="newReplyText">
       			</div>
@@ -200,6 +204,13 @@
       				<button type="submit" class="btn btn-primary" id="replyAddBtn">
       				ADD REPLY</button>
       			</div>
+      			</c:if>
+      			
+      			<c:if test="${empty login }">
+      				<div class="box-body">
+      					<div><a href="/user/login">Login Please</a></div>
+      				</div>
+      			</c:if>
       		</div>
       		
       		<ul class="timeline">
@@ -248,9 +259,11 @@
 			<h3 class="timeline-header"><strong>{{rno}}</strong> -{{userid}}</h3>
 			<div class="timeline-body">{{replytext}} </div>
 			  <div class="timeline-footer">
+				{{#eqReplyer userid}}
 				<a class="btn btn-primary btn-xs"
 						data-toggle="modal" data-target="#modifyModal">Modify</a>
 			  </div>
+				{{/eqReplyer}}
 		 </div>
 		</li>
 		{{/each}}
@@ -274,6 +287,15 @@
 		var date = dateObj.getDate();
 		
 		return year + "/" + month + "/" + date;
+	});
+	
+	Handlebars.registerHelper("eqReplyer", function(userid, block){
+		var accum = '';
+		if(userid == '${login.userid}'){
+			accum += block.fn();
+		}
+		
+		return accum;
 	});
 	
 	var printData = function(replyArr, target, templateObject){
@@ -459,7 +481,7 @@
     <!-- Footer -->
     <footer class="py-5 bg-dark">
       <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+        <p class="m-0 text-center text-white">Copyright &copy; by krdeveloper</p>
       </div>
       <!-- /.container -->
     </footer>

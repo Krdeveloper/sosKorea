@@ -130,4 +130,10 @@ public class JobsDAOImpl implements JobsDAO {
 		session.insert(namespace+".replaceAttach", paramMap);
 	}
 
+	@Override
+	public List<JobsVO> listTopThree() throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectList(namespace + ".listTopThree");
+	}
+
 }

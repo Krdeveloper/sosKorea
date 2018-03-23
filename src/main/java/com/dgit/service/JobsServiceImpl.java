@@ -114,6 +114,12 @@ public class JobsServiceImpl implements JobsService {
 		// TODO Auto-generated method stub
 		return dao.getAttach(bno);
 	}
+
+	@Override
+	public List<JobsVO> listTopThree() throws Exception {
+		// TODO Auto-generated method stub
+		return dao.listTopThree();
+	}
 	
 	/*
 	@Override

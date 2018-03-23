@@ -14,6 +14,9 @@
  		 	width: 100%;
   			height: 100%;
 		} 
+		body{
+			background-color: #BDBDBD;
+		}
       </style>
 <header>
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -27,7 +30,7 @@
           <div class="carousel-item active" style="background-image: url('${pageContext.request.contextPath}/resources/img/korea_flag.jpg')">
             <div class="carousel-caption d-none d-md-block">
               <h3>Blacklist</h3>
-              <p>This is a description for the first slide.</p>
+              
             </div>
           </div>
          
@@ -37,7 +40,8 @@
     </header>
 	
 	<!-- Portfolio Section -->
-      <h2>Portfolio Heading</h2>
+	
+      <h2>The Embassies</h2>
 
       <div class="row">
         <div class="col-lg-4 col-sm-6 portfolio-item">
@@ -47,7 +51,12 @@
               <h4 class="card-title">
                 <a href="https://www.gov.uk/world/organisations/british-embassy-seoul">UK</a>
               </h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!</p>
+              <p class="card-text">
+Address : Sejong-daero 19-gil 24 Jung-gu Seoul 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;04519<br>
+Email : Consular.Seoul@fco.gov.uk<br>
+Telephone : +82 (0)2 3210 5500
+</p>
             </div>
           </div>
         </div>
@@ -58,7 +67,11 @@
               <h4 class="card-title">
                 <a href="https://kr.usembassy.gov/embassy-consulate/seoul/">USA</a>
               </h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+              <p class="card-text">Address : US Embassy in Seoul, Korea
+188 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sejong-daero, Jongno-gu,
+Seoul, Korea
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;03141<br>
+Telephone : +82-2-397-4114</p>
             </div>
           </div>
         </div>
@@ -69,7 +82,11 @@
               <h4 class="card-title">
                 <a href="http://www.canadainternational.gc.ca/korea-coree/index.aspx?lang=eng">CANADA</a>
               </h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quisquam, error quod sed cumque, odio distinctio velit nostrum temporibus necessitatibus et facere atque iure perspiciatis mollitia recusandae vero vel quam!</p>
+              <p class="card-text">Address : 21, Jeongdong-gil (Jeong-dong),<br> 
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jung-gu
+Seoul, 04518<br>
+Email : seoul@international.gc.ca<br>
+Telephone : +82-2-3783-6000</p>
             </div>
           </div>
         </div>
@@ -80,18 +97,24 @@
               <h4 class="card-title">
                 <a href="http://southkorea.embassy.gov.au/">AUSTRALIA</a>
               </h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+              <p class="card-text">Address : 19th Fl, Kyobo Building, 1 Jongro,
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jongno-Gu, Seoul 03154<br>
+Telephone :  +822 2003 0100</p>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-sm-6 portfolio-item">
           <div class="card h-100">
-            <a href="https://www.mfat.govt.nz/ko/countries-and-regions/north-asia/republic-of-korea-south/new-zealand-embassy/"><img class="card-img-top" src='${pageContext.request.contextPath}/resources/img/newzealand_flag.jpg' alt=""></a>
+            <a href="https://www.dfa.ie/irish-embassy/republic-of-korea/"><img class="card-img-top" src='${pageContext.request.contextPath}/resources/img/ireland_flag.jpg' alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="https://www.mfat.govt.nz/ko/countries-and-regions/north-asia/republic-of-korea-south/new-zealand-embassy/">NEW-ZEALAND</a>
+                <a href="https://www.dfa.ie/irish-embassy/republic-of-korea/">IRELAND</a>
               </h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+              <p class="card-text">Address : Leema Bldg. 13F.,
+42, Jongro 1-gil,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jongno-gu,
+Seoul, Korea 03152<br>
+Telephone: +82-2721 7200</p>
             </div>
           </div>
         </div>
@@ -102,7 +125,11 @@
               <h4 class="card-title">
                 <a href="http://www.southafrica-embassy.or.kr/">SOUTH-AFRICA</a>
               </h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque earum nostrum suscipit ducimus nihil provident, perferendis rem illo, voluptate atque, sit eius in voluptates, nemo repellat fugiat excepturi! Nemo, esse.</p>
+              <p class="card-text">Address : 104 Dokseodang-ro (Hannam-dong) 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yongsan-gu 
+Seoul 140-884<br>
+Email : general@southafrica-embassy.or.kr<br>
+Telephone : + 82 (0)2 2077 5900</p>
             </div>
           </div>
         </div>
@@ -112,11 +139,11 @@
     <!-- Page Content -->
     <div class="container">
 
-      <h1 class="my-4">Welcome to Modern Business</h1>
+      <h1 class="my-4">New Jobs</h1>
 
       <!-- Marketing Icons Section -->
       <div class="row">
-        <div class="col-lg-4 mb-4">
+        <!-- <div class="col-lg-4 mb-4">
           <div class="card h-100">
             <h4 class="card-header">Card Title</h4>
             <div class="card-body">
@@ -126,19 +153,21 @@
               <a href="#" class="btn btn-primary">Learn More</a>
             </div>
           </div>
-        </div>
+        </div> -->
+        <c:forEach items="${listTopThree }" var="jobsVO">
         <div class="col-lg-4 mb-4">
           <div class="card h-100">
-            <h4 class="card-header">Card Title</h4>
+            <h4 class="card-header">${jobsVO.title }</h4>
             <div class="card-body">
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ipsam eos, nam perspiciatis natus commodi similique totam consectetur praesentium molestiae atque exercitationem ut consequuntur, sed eveniet, magni nostrum sint fuga.</p>
+              <p class="card-text">${jobsVO.content }</p>
             </div>
             <div class="card-footer">
-              <a href="#" class="btn btn-primary">Learn More</a>
+              <a href="/jobs/read${pageMaker.makeQuery(pageMaker.cri.page) }&bno=${jobsVO.bno }" class="btn btn-primary">Detail</a>
             </div>
           </div>
         </div>
-        <div class="col-lg-4 mb-4">
+        </c:forEach>
+        <!-- <div class="col-lg-4 mb-4">
           <div class="card h-100">
             <h4 class="card-header">Card Title</h4>
             <div class="card-body">
@@ -148,27 +177,28 @@
               <a href="#" class="btn btn-primary">Learn More</a>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
       <!-- /.row -->
 
-      
+      <hr>
 
       <!-- Features Section -->
       <div class="row">
         <div class="col-lg-6">
-          <h2>Modern Business Features</h2>
-          <p>The Modern Business template by Start Bootstrap includes:</p>
+          <h2>Welcome to Teach ESL Korea</h2>
+          <p>Here are some things that you might need...</p>
           <ul>
             <li>
-              <strong>Bootstrap v4</strong>
+              <strong>up to date job opportunities</strong>
             </li>
-            <li>jQuery</li>
-            <li>Font Awesome</li>
-            <li>Working contact form with validation</li>
-            <li>Unstyled page elements for easy customization</li>
+            <li>information about jobs from those who have worked there</li>
+            <li>ideas on where to eat and drink</li>
+            <li>advice from others who have been in your shoes</li>
+            <li>links to useful sites for your stay in Korea</li>
           </ul>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
+          <p>Welcome to The Secrets of South Korea. This page is aimed at the expats in Korea.
+            This is a platform for us expats to celebrate the best and chat about the rest.</p>
         </div>
         <div class="col-lg-6">
           <!-- <img class="img-fluid rounded" src="http://placehold.it/700x450" alt=""> -->
@@ -186,10 +216,16 @@
       <!-- Call to Action Section -->
       <div class="row mb-4">
         <div class="col-md-8">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>
+          <p>Address : 1.Daegu Suseonggu sawoldong   2.Gyeonggi-do Hwaseong City Bansongdong</p>
+          <p>Phone : (+82)10-3655-20777    	
+          </p>
+          <a href=""><p class="fa fa-facebook-square">Facebook</p></a>
+          	<a href=""><p class="fa fa-instagram">Instagram</p></a>
+        	<a href=""><p class="fa fa-twitter-square">Twitter</p></a>
+          
         </div>
         <div class="col-md-4">
-          <a class="btn btn-lg btn-secondary btn-block" href="#">Call to Action</a>
+          <a class="btn btn-lg btn-secondary btn-block" href="#">Go to The Top</a>
         </div>
       </div>
 
@@ -199,7 +235,13 @@
     <!-- Footer -->
     <footer class="py-5 bg-dark">
       <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+        <p class="m-0 text-center text-white">
+        Copyright &copy; By Krdeveloper 2018
+          
+          
+        
+        </p>
+        
       </div>
       <!-- /.container -->
     </footer>

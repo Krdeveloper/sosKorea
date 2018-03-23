@@ -9,15 +9,15 @@
     <div class="container">
 
       <!-- Page Heading/Breadcrumbs -->
-      <h1 class="mt-4 mb-3">Contact
+      <!-- <h1 class="mt-4 mb-3">Contact
         <small>Subheading</small>
-      </h1>
+      </h1> -->
 
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
           <a href="index.html">Home</a>
         </li>
-        <li class="breadcrumb-item active">Contact</li>
+        <li class="breadcrumb-item active">Jobs</li>
       </ol>
 
       <!-- Content Row -->
@@ -29,10 +29,10 @@
         </div>
         <!-- Contact Details Column -->
         <div class="col-lg-4 mb-4">
-          <h3>Contact Details</h3>
+          <h3>Details</h3>
           <p>
-            3481 Melrose Place
-            <br>Beverly Hills, CA 90210
+            Gyeonggi-do Hwaseong City 
+            <br>Bansongdong, 90210
             <br>
           </p>
           <p>
@@ -40,7 +40,7 @@
           </p>
           <p>
             <abbr title="Email">E</abbr>:
-            <a href="mailto:name@example.com">name@example.com
+            <a href="mailto:name@example.com">jek12@ewd.com
             </a>
           </p>
           <p>
@@ -74,7 +74,8 @@
             <div class="control-group form-group">
               <div class="controls">
                 <label>Writer</label>
-                <input type="text" name="userid" class="form-control" id="email" required data-validation-required-message="Please enter your email address.">
+                <input type="text" name="userid" class="form-control" id="email"
+                value='${login.userid }' readonly required data-validation-required-message="Please enter your email address.">
               </div>
             </div>
             <!-- <div class="control-group form-group">
@@ -218,7 +219,7 @@
     <!-- Footer -->
     <footer class="py-5 bg-dark">
       <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+        <p class="m-0 text-center text-white">Copyright &copy; by krdeveloper 2018</p>
       </div>
       <!-- /.container -->
     </footer>

@@ -7,7 +7,6 @@ create table sos_member(
 	primary key(userid)
 );
 
-drop table member;
 
 select *  from sos_member;
 
@@ -71,3 +70,5 @@ alter table jobs_attach add constraint fk_jobs_attach
 foreign key (bno) references jobs(bno);
 
 select * from jobs_attach;
+
+select * from jobs order by bno desc limit 3;

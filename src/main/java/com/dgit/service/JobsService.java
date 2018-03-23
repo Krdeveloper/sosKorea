@@ -35,4 +35,6 @@ public interface JobsService {
 	public int updateViewCnt(int bno) throws Exception;
 	
 	*/
+	
+	public List<JobsVO> listTopThree() throws Exception;
 }

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.dgit.domain.MemberVO;
+import com.dgit.dto.LoginDTO;
 
 @Repository
 public class MemberDAOImpl implements MemberDAO {
@@ -43,6 +44,12 @@ public class MemberDAOImpl implements MemberDAO {
 		paramMap.put("userid", userid);
 		paramMap.put("userpw", userpw);
 		return sqlSession.selectOne(namespace+".readWithPW", paramMap);
+	}
+
+	@Override
+	public MemberVO login(LoginDTO dto) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(namespace + ".login", dto);
 	}
 
 	

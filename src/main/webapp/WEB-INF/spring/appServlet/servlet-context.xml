@@ -32,5 +32,26 @@
 	<context:component-scan base-package="com.dgit.controller" />
 	
 	
+	<beans:bean id="loginInterceptor" class="com.dgit.interceptor.LoginInterceptor">   	
+   	</beans:bean>
+   	
+   	<beans:bean id="authInterceptor" class="com.dgit.interceptor.AuthInterceptor">
+   	</beans:bean>
+   	
+   	<interceptors>
+   		<interceptor>
+   			<mapping path="/user/loginPost"/>
+   			<beans:ref bean="loginInterceptor"/>
+   		</interceptor>
+   		
+   		<interceptor>
+   			<mapping path="/jobs/register"/>
+   			<mapping path="/jobs/modify"/>
+   			<mapping path="/jobs/remove"/>   			
+   			<beans:ref bean="authInterceptor"/>
+   		</interceptor> 
+   	</interceptors> 
+	
+	
 	
 </beans:beans>

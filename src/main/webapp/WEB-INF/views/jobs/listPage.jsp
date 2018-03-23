@@ -26,7 +26,16 @@
   <link href="${pageContext.request.contextPath}/resources/css/sb-admin.css" rel="stylesheet">
 
 </head>
+
+<style>
+      	
+		body{
+			background-color: #BDBDBD;
+		}
+      </style>
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
+
+
 
 <!-- Navigation -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -41,12 +50,12 @@
               <a class="nav-link" href="/jobs/listPage">Jobs</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="services.html">Services</a>
+              <a class="nav-link" href="">FleaMarket</a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="contact.html">Contact</a>
-            </li>
-            <li class="nav-item  dropdown">
+            </li> -->
+            <!-- <li class="nav-item  dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Portfolio
               </a>
@@ -57,8 +66,8 @@
                 <a class="dropdown-item" href="portfolio-4-col.html">4 Column Portfolio</a>
                 <a class="dropdown-item" href="portfolio-item.html">Single Portfolio Item</a>
               </div>
-            </li>
-            <li class="nav-item dropdown">
+            </li> -->
+            <!-- <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Blog
               </a>
@@ -67,18 +76,27 @@
                 <a class="dropdown-item" href="blog-home-2.html">Blog Home 2</a>
                 <a class="dropdown-item" href="blog-post.html">Blog Post</a>
               </div>
-            </li>
+            </li> -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Other Pages
+                [Agree Disagree]
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                <a class="dropdown-item" href="full-width.html">Full Width Page</a>
-                <a class="dropdown-item" href="sidebar.html">Sidebar Page</a>
-                <a class="dropdown-item" href="faq.html">FAQ</a>
-                <a class="dropdown-item" href="404.html">404</a>
-                <a class="dropdown-item" href="pricing.html">Pricing Table</a>
+                <a class="dropdown-item" href="">Tell</a>
+                <a class="dropdown-item" href="">Me</a>
+                <a class="dropdown-item" href="">What</a>
+                <a class="dropdown-item" href="">U</a>
+                <a class="dropdown-item" href="">Need</a>
               </div>
+            </li>
+            <li class="nav-item">
+              <!-- <a class="nav-link" href="contact.html">Contact</a> -->
+              <c:if test="${empty login }">
+                   <a href="/user/login" class="btn btn-default btn-flat">log in</a>
+               </c:if>
+               <c:if test="${!empty login }">
+                   <a href="/user/logout" class="btn btn-default btn-flat">log out</a>
+               </c:if>
             </li>
           </ul>
         </div>
@@ -92,7 +110,7 @@
 		<div class="container-fluid">
 			<!-- Breadcrumbs-->
 			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><a href="#">Home</a></li>
+				<li class="breadcrumb-item"><a href="/">Home</a></li>
 				<li class="breadcrumb-item active">Jobs</li>
 			</ol>
 			<!-- Example DataTables Card-->
@@ -233,8 +251,7 @@
 		<!-- Footer -->
 		<footer class="py-5 bg-dark">
 			<div class="container">
-				<p class="m-0 text-center text-white">Copyright &copy; Your
-					Website 2017</p>
+				<p class="m-0 text-center text-white">Copyright &copy; By Krdeveloper 2018</p>
 			</div>
 			<!-- /.container -->
 		</footer>
@@ -316,5 +333,9 @@
 					}); 
 		</script>
 	</div>
+	
+	<script src="${pageContext.request.contextPath}/resources/vendor/jquery/jquery.min.js"></script>  
+    <script src="${pageContext.request.contextPath}/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> 
+    
 </body>
 </html>

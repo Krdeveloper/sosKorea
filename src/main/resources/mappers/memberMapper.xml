@@ -16,6 +16,11 @@
 	<select id="readWithPW" resultType="com.dgit.domain.MemberVO">
 	  	select * from sos_member where userid = #{userid} and userpw = #{userpw}
 	</select>
+	
+	<select id="login" resultType="MemberVO">
+		select userid, userpw, email from sos_member where userid=#{uid} and userpw=#{upw}
+	</select> 
+	
 	<!-- <select id="selectAll" resultType="MemberVO">
 		select * from tbl_member;
 	</select> --> 
@@ -27,9 +32,7 @@
 		delete from tbl_member where userid=#{userid};
 	</delete>
 	 -->
-	<!-- <select id="login" resultType="MemberVO">
-		select * from tbl_member where userid=#{userid} and userpw=#{userpw}
-	</select> -->
+	
 </mapper>
 
 

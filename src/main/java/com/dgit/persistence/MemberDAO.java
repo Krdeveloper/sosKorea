@@ -1,6 +1,7 @@
 package com.dgit.persistence;
 
 import com.dgit.domain.MemberVO;
+import com.dgit.dto.LoginDTO;
 
 public interface MemberDAO {
 	
@@ -11,4 +12,7 @@ public interface MemberDAO {
 	public MemberVO readMember(String userid) throws Exception;
 	
 	public MemberVO readWithPW(String userid, String userpw) throws Exception;
+	
+	
+	public MemberVO login(LoginDTO dto) throws Exception;
 }

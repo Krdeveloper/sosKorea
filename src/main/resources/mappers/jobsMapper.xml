@@ -120,6 +120,14 @@
 	<insert id="replaceAttach">
 		insert into jobs_attach(fullName, bno) values (#{fullName}, #{bno})
 	</insert>
+	
+	
+	<select id="listTopThree" resultType="JobsVO">
+	  	select * from jobs order by bno desc limit 3
+	</select>
+	
+		
+	
 </mapper>
 
 

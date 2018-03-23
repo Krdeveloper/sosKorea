@@ -39,4 +39,7 @@ public interface JobsDAO {
 	public void deleteAttach(Integer bno) throws Exception;
 	
 	public void replaceAttach(String fullName, Integer bno) throws Exception;
+	
+	
+	public List<JobsVO> listTopThree() throws Exception;
 }
